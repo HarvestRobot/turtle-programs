@@ -1,0 +1,13 @@
+local monitor = peripheral.wrap("top")
+rednet.open("back")
+monitor.clear()
+monitor.setCursorPos(1,1)
+monitor.write("-Main computer-")
+
+while true do
+  local lineNum = 1 
+  local sender, message = rednet.receive()
+  lineNum = lineNum + 1
+  monitor.setCursorPos(1,lineNum)
+  monitor.write(message)
+end
